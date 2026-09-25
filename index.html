@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Todo List - Dynamique</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <h1>My Todo List</h1>
+        <p>Organisez vos tâches simplement.</p>
+      </header>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Rechercher une tâche..."
+      />
+      <form id="taskForm">
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Nouvelle tâche..."
+        /><button type="submit">Ajouter</button>
+      </form>
+      <p id="errorMsg" class="error hidden"></p>
+      <div class="filters">
+        <button data-filter="all" class="active">Toutes</button>
+        <button data-filter="pending">En cours</button>
+        <button data-filter="completed">Terminées</button>
+      </div>
+      <ul id="taskList"></ul>
+      <div id="emptyState" class="state">
+        <h3>Aucune tâche</h3>
+        <p>Ajoutez votre première tâche !</p>
+      </div>
+      <div id="noResult" class="state hidden">
+        <h3>Aucune tâche trouvée</h3>
+      </div>
+      <div class="stats">
+        <div><strong id="total">0</strong><span>Total</span></div>
+        <div><strong id="pending">0</strong><span>En cours</span></div>
+        <div><strong id="completed">0</strong><span>Terminées</span></div>
+      </div>
+      <div id="toast"></div>
+    </div>
+    <div id="editModal" class="modal hidden">
+      <div class="modal-card">
+        <h3>Modifier la tâche</h3>
+        <input type="text" id="editInput" />
+        <div class="actions">
+          <button id="cancelEdit">Annuler</button
+          ><button id="saveEdit">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

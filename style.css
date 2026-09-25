@@ -1,0 +1,232 @@
+:root {
+  --bg: #f5f6fb;
+  --card: #fff;
+  --primary: #6366f1;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --green: #10b981;
+  --red: #ef4444;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, system-ui;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+.app {
+  width: 100%;
+  max-width: 560px;
+  background: var(--card);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+}
+header p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 6px;
+}
+#searchInput {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #f9fafb;
+  outline: none;
+  margin-bottom: 12px;
+}
+#taskForm {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+#taskInput {
+  flex: 1;
+  padding: 13px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #f9fafb;
+  outline: none;
+}
+#taskForm button {
+  padding: 13px 20px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.error {
+  color: var(--red);
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.hidden {
+  display: none !important;
+}
+.filters {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+.filters button {
+  flex: 1;
+  padding: 9px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+.filters button.active {
+  background: var(--text);
+  color: #fff;
+}
+#taskList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  padding: 14px;
+  border-radius: 14px;
+}
+.item.done {
+  opacity: 0.7;
+}
+.item.done .title {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+.check {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #fff;
+  font-weight: 800;
+}
+.item.done .check {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+.title {
+  flex: 1;
+  cursor: pointer;
+  word-break: break-word;
+}
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+}
+.state {
+  text-align: center;
+  padding: 36px 12px;
+  color: var(--muted);
+}
+.state h3 {
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.stats {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+.stats div {
+  flex: 1;
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+}
+.stats strong {
+  display: block;
+  font-size: 18px;
+}
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #111827;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  opacity: 0;
+  transition: 0.35s;
+  pointer-events: none;
+}
+#toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.modal-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 18px;
+  width: 92%;
+  max-width: 420px;
+}
+.modal-card input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin: 14px 0;
+}
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+#saveEdit {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
